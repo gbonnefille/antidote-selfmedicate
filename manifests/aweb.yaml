@@ -1,11 +1,15 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata: 
   name: aweb
 spec: 
   replicas: 1
   revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: aweb
+      antidote_role: infra
   template: 
     metadata:
       name: aweb
